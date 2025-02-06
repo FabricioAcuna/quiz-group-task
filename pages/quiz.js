@@ -1,7 +1,5 @@
+import { QuizContext } from "@/contexts/QuizContext";
 export default function Quiz() {
-  return (
-    <div>
-      <h1>hej</h1>
-    </div>
-  );
+  const { questions } = useContext(QuizContext);
+  return <div></div>;
 }
