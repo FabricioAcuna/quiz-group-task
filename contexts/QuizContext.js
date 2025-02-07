@@ -13,6 +13,7 @@ export default function QuizProvider({ children }) {
   ]);
 
   const [score, setScore] = useState(0);
+
   const [selectedAnswers, setSelectedAnswers] = useState({}); 
   
 // Spåra valda svar här ovanför
@@ -24,21 +25,29 @@ export default function QuizProvider({ children }) {
     setSelectedAnswers((prev) => ({
       ...prev,
       [questionIndex]: { selected: selectedAnswerIndex, correct: isCorrect },
-  const [answeredQuestions, setAnsweredQuestions] = useState({});
-
-  const handleAnswer = (questionIndex, selectedAnswerIndex) => {
-    if (answeredQuestions[questionIndex]) return;
-    if (selectedAnswerIndex === questions[questionIndex].correct) {
-      setScore((score) => score + 1);
-    }
-
-    setAnsweredQuestions((prev) => ({
-      ...prev,
-      [questionIndex]: true,
+ 
     }));
   };
 
 // Den här ovanför sparar det valda svaret om det är korrekt.
+
+
+
+
+const [answeredQuestions, setAnsweredQuestions] = useState({});
+
+const handleAnsweredQuestions = (questionIndex, selectedAnswerIndex) => {
+  if (answeredQuestions[questionIndex]) return;
+  if (selectedAnswerIndex === questions[questionIndex].correct) {
+    setScore((score) => score + 1);
+  }
+
+  setAnsweredQuestions((prev) => ({
+    ...prev,
+    [questionIndex]: true,
+  }));
+};
+
 
   return (
     <QuizContext.Provider value={{ questions, score, selectedAnswers, handleAnswer }}>
