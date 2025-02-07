@@ -20,11 +20,18 @@ export default function QuizProvider({ children }) {
   ]);
 
   const [score, setScore] = useState(0);
+  const [answeredQuestions, setAnsweredQuestions] = useState({});
 
   const handleAnswer = (questionIndex, selectedAnswerIndex) => {
+    if (answeredQuestions[questionIndex]) return;
     if (selectedAnswerIndex === questions[questionIndex].correct) {
       setScore((score) => score + 1);
     }
+
+    setAnsweredQuestions((prev) => ({
+      ...prev,
+      [questionIndex]: true,
+    }));
   };
 
   return (
