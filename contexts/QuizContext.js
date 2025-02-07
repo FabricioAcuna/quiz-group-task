@@ -24,6 +24,17 @@ export default function QuizProvider({ children }) {
     setSelectedAnswers((prev) => ({
       ...prev,
       [questionIndex]: { selected: selectedAnswerIndex, correct: isCorrect },
+  const [answeredQuestions, setAnsweredQuestions] = useState({});
+
+  const handleAnswer = (questionIndex, selectedAnswerIndex) => {
+    if (answeredQuestions[questionIndex]) return;
+    if (selectedAnswerIndex === questions[questionIndex].correct) {
+      setScore((score) => score + 1);
+    }
+
+    setAnsweredQuestions((prev) => ({
+      ...prev,
+      [questionIndex]: true,
     }));
   };
 
