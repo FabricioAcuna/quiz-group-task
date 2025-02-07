@@ -54,11 +54,6 @@ export default function Quiz() {
                 }
               }
 
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> b43887d6efebd0c957f28a5e7982eba070156dc8
               return (
                 <button
                   key={answerIndex}
