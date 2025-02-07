@@ -19,8 +19,18 @@ export default function QuizProvider({ children }) {
     { text: "Vad är Spaniens huvudstad?", alt: ["a", "b", "c"], correct: 2 },
   ]);
 
+  const [score, setScore] = useState(0);
+
+  const handleAnswer = (questionIndex, selectedAnswerIndex) => {
+    if (selectedAnswerIndex === questions[questionIndex].correct) {
+      setScore((prevScore) => prevScore + 1);
+    }
+  };
+
   return (
-    <QuizContext.Provider value={{ questions, setQuestions }}>
+    <QuizContext.Provider
+      value={{ questions, setQuestions, score, handleAnswer }}
+    >
       {children}
     </QuizContext.Provider>
   );
