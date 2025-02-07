@@ -15,8 +15,9 @@ export default function Quiz() {
     return (
       <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
         <h1 className="text-white text-4xl font-bold mb-4">Quiz Completed!</h1>
-        <p className="text-white text-2xl mb-6">
-          Total score <span className="">{score}</span>.
+        <p className="text-white text-3xl font-semibold mb-6 flex items-center">
+          <span className="mr-2">Total Score:</span>
+          <span className="text-4xl font-bold text-yellow-400">{score}</span>
         </p>
 
         <button
