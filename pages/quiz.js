@@ -11,7 +11,8 @@ export default function Quiz() {
     return (
       <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
         <h1 className="text-white text-4xl font-bold mb-4">Quiz Completed!</h1>
-  
+       
+
         <button
           onClick={resetQuiz}
           className="px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950"
@@ -37,7 +38,7 @@ export default function Quiz() {
             {question.alt.map((answer, answerIndex) => {
               const answerState = selectedAnswers[index];
               let buttonClass =
-                "px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950";
+                "px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg";
 
               if (answerState) {
                 if (answerState.selected === answerIndex) {
