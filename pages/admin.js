@@ -21,4 +21,21 @@ export default function Admin() {
             setCorrectAnswer("");
         }
     }
+
+    return (
+        <div>
+            <div className="flex flex-col gap-4">
+                <h2 className="font-bold">Add new question</h2>
+                <label>Question:</label>
+                <input className="border" value={questionName}
+                    onChange={(e) => setQuestionName(e.target.value)} />
+                <label>Answer alternatives:</label>
+                <input className="border" value={answerAlts}
+                    onChange={(e) => setQuestionName(e.target.value)} />
+                <label>Correct answer:</label>
+                <input className="border" value={correctAnswer}
+                    onChange={(e) => setQuestionName(e.target.value)} />
+            </div>
+        </div>
+    )
 }
