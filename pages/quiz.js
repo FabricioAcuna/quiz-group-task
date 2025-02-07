@@ -2,7 +2,26 @@ import { QuizContext } from "@/contexts/QuizContext";
 import { useContext } from "react";
 
 export default function Quiz() {
-  const { questions, score, selectedAnswers, handleAnswer } = useContext(QuizContext);
+  const { questions, score, selectedAnswers, handleAnswer, isQuizCompleted, resetQuiz } =
+    useContext(QuizContext);
+
+
+///////
+  if (isQuizCompleted) {
+    return (
+      <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
+        <h1 className="text-white text-4xl font-bold mb-4">Quiz Completed!</h1>
+  
+        <button
+          onClick={resetQuiz}
+          className="px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950"
+        >
+          Restart Quiz
+        </button>
+      </div>
+    );
+  }
+///////
 
   return (
     <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
@@ -22,15 +41,13 @@ export default function Quiz() {
 
               if (answerState) {
                 if (answerState.selected === answerIndex) {
-                  buttonClass += answerState.correct
-                    ? " bg-green-500"
+                  buttonClass += answerState.correct 
+                    ? " bg-green-500" 
                     : " bg-red-500";
                 } else {
                   buttonClass += " opacity-50";
                 }
               }
-
-// Här ovanför byts färgerna till grönt eller rött och opacity-50 gör att om man inte väljer nån svar då syns de mindre 
 
               return (
                 <button
