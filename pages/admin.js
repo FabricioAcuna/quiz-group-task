@@ -11,14 +11,15 @@ export default function Admin() {
   const [correctAnswer, setCorrectAnswer] = useState("");
 
   function handleAddQuestion() {
-    if (question && alts && correct) {
+    if (question && alt && correct) {
       const newQuestion = {
         name: questionName,
         alt: answerAlts,
         correct: correctAnswer,
       };
 
-      setQuestionName([...questions, newQuestion]);
+      setQustions([...questions, newQuestion]);
+      setQuestionName("");
       setAnswerAlts("");
       setCorrectAnswer("");
     }
