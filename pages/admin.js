@@ -2,8 +2,6 @@ import { QuizContext } from "@/contexts/QuizContext";
 import Link from "next/link";
 import { useState, useContext } from "react";
 
-//lägga till, ta bort och redigera frågor till quiz
-
 export default function Admin() {
   const { questions, setQuestions } = useContext(QuizContext);
 
@@ -12,39 +10,32 @@ export default function Admin() {
   const [correctAnswer, setCorrectAnswer] = useState("");
 
   function handleAddQuestion() {
-    if (questionName && answerAlts && correctAnswer) {
-      const newQuestion = [
-        {
-          name: questionName,
-          alt: answerAlts,
-          correct: parseInt(correctAnswer),
-        },
-      ];
+    if (
+      questionName &&
+      answerAlts.every((alt) => alt !== "") &&
+      correctAnswer !== ""
+    ) {
+      const newQuestion = {
+        text: questionName,
+        alt: answerAlts,
+        correct: parseInt(correctAnswer, 10),
+      };
 
       setQuestions([...questions, newQuestion]);
+
       setQuestionName("");
       setAnswerAlts(["", "", ""]);
       setCorrectAnswer("");
+    } else {
+      alert("Please fill in all fields");
     }
   }
-  //   function updateQuiz(text, index) {
-  //     const updatedQuiz = questions.map((question, i) => {
-  //       if (i === index) {
-  //         return {
-  //           ...question,
-  //           name: text,
-  //           alt: text,
-  //           correct: text,
-  //         };
-  //       }
-  //       return question;
-  //     });
-  //     setQustions(updatedQuiz);
-  //   }
+
   function handleDeleteQuiz(index) {
     const updatedQuiz = questions.filter((_, i) => i !== index);
     setQuestions(updatedQuiz);
   }
+
   function handleAnswerChange(index, value) {
     const updatedAnswers = [...answerAlts];
     updatedAnswers[index] = value;
@@ -62,7 +53,7 @@ export default function Admin() {
           value={questionName}
           onChange={(e) => setQuestionName(e.target.value)}
         />
-        <label>Answer alternatives :</label>
+        <label>Answer alternatives:</label>
         {answerAlts.map((alt, index) => (
           <input
             key={index}
@@ -71,7 +62,7 @@ export default function Admin() {
             onChange={(e) => handleAnswerChange(index, e.target.value)}
           />
         ))}
-        <label>Correct answer:</label>
+        <label>Correct answer (index):</label>
         <input
           className="border text-black"
           value={correctAnswer}
@@ -84,21 +75,16 @@ export default function Admin() {
       >
         Skapa Fråga
       </button>
+
       <h2 className="font-bold mt-4">Nuvarande frågor</h2>
       {questions.map((question, index) => (
         <div className="text-center" key={index}>
           <p>{question.text}</p>
           <p>
-            Alternatives:{" "}
-            {(question.alt && Array.isArray(question.alt)
-              ? question.alt
-              : []
-            ).map((alt, i) => (
-              <span key={i}>{alt} </span>
-            ))}
+            {Array.isArray(question.alt) &&
+              question.alt.map((alt, i) => <span key={i}>{alt} </span>)}
           </p>
           <p>Correct: {question.correct}</p>
-
           <button
             className="mt-2 border border-solid border-black"
             onClick={() => handleDeleteQuiz(index)}
