@@ -6,10 +6,9 @@ export default function QuizProvider({ children }) {
   const [questions, setQuestions] = useState([
     { text: "Vad är Sveriges huvudstad?", alt: ["Stockholm", "Göteborg", "Malmö"], correct: 0 },
     { text: "Vad är Norges huvudstad?", alt: ["Stockholm", "Oslo", "Köpenhamn"], correct: 1 },
-    
-    { text: "Vad är Tysklands huvudstad?", alt: ["a", "b", "c"], correct: 2 },
-    { text: "Vad är Finlands huvudstad?", alt: ["a", "b", "c"], correct: 0 },
-    { text: "Vad är Spaniens huvudstad?", alt: ["a", "b", "c"], correct: 2 },
+    { text: "Vad är Tysklands huvudstad?", alt: ["Hamburg", "München", "Berlin"], correct: 2 },
+    { text: "Vad är Finlands huvudstad?", alt: ["Helsingfors", "Åbo", "Mariehamn"], correct: 0 },
+    { text: "Vad är Spaniens huvudstad?", alt: ["Barcelona", "Sevilla", "Madrid"], correct: 2 },
   ]);
 
   const [score, setScore] = useState(0);
