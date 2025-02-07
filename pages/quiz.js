@@ -26,4 +26,4 @@ export default function Quiz() {
 }
 
 
-hej 
+hej
