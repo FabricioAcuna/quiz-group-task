@@ -11,7 +11,6 @@ export default function Quiz() {
     resetQuiz,
   } = useContext(QuizContext);
 
-  ///////
   if (isQuizCompleted) {
     return (
       <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
@@ -26,7 +25,6 @@ export default function Quiz() {
       </div>
     );
   }
-  ///////
 
   return (
     <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
