@@ -17,11 +17,14 @@ export default function Quiz() {
               <p className="text-white text-xl">{question.text}</p>
 
               <div className="flex gap-2 justify-center">
-                {question.alt.map((answer, answerIndex) => (
+                {(question.alt && Array.isArray(question.alt)
+                  ? question.alt
+                  : []
+                ).map((answer, answerIndex) => (
                   <button
                     key={answerIndex}
-                    className="px-3 py-1 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950"
                     onClick={() => handleAnswer(index, answerIndex)}
+                    className="px-3 py-1 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950"
                   >
                     {answer}
                   </button>
@@ -34,5 +37,3 @@ export default function Quiz() {
     </div>
   );
 }
-
-
