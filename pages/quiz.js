@@ -2,7 +2,31 @@ import { QuizContext } from "@/contexts/QuizContext";
 import { useContext } from "react";
 
 export default function Quiz() {
-  const { questions, score, selectedAnswers, handleAnswer } = useContext(QuizContext);
+  const {
+    questions,
+    score,
+    selectedAnswers,
+    handleAnswer,
+    isQuizCompleted,
+    resetQuiz,
+  } = useContext(QuizContext);
+
+  ///////
+  if (isQuizCompleted) {
+    return (
+      <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
+        <h1 className="text-white text-4xl font-bold mb-4">Quiz Completed!</h1>
+
+        <button
+          onClick={resetQuiz}
+          className="px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950"
+        >
+          Restart Quiz
+        </button>
+      </div>
+    );
+  }
+  ///////
 
   return (
     <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
@@ -30,8 +54,11 @@ export default function Quiz() {
                 }
               }
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> b43887d6efebd0c957f28a5e7982eba070156dc8
               return (
                 <button
                   key={answerIndex}
