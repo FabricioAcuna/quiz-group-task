@@ -23,7 +23,7 @@ export default function QuizProvider({ children }) {
 
   const handleAnswer = (questionIndex, selectedAnswerIndex) => {
     if (selectedAnswerIndex === questions[questionIndex].correct) {
-      setScore((prevScore) => prevScore + 1);
+      setScore((score) => score + 1);
     }
   };
 
