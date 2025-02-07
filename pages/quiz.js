@@ -30,7 +30,7 @@ export default function Quiz() {
                 }
               }
 
-                // Här ovanför byts färgerna till grönt eller rött och opacity-50 gör att om man inte väljer nån svar då syns de mindre 
+    
 
               return (
                 <button
