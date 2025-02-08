@@ -8,7 +8,7 @@ export default function Home() {
         Test your general knowledge with a quiz!
       </h2>
       <Link href="/quiz">
-        <button className="px-6 py-3 text-lg font-semibold text-white bg-blue-900 rounded-lg  hover:bg-blue-950">
+        <button className="px-6 py-3 text-lg font-semibold text-white bg-blue-900 rounded-lg hover:bg-blue-950">
           Get Started
         </button>
       </Link>

@@ -73,15 +73,15 @@ export default function Admin() {
   }
 
   return (
-    <div className="bg-gradient-to-l from-slate-600 to-slate-800 min-h-max">
-      <Link className=" underline" href={"/quiz"}>
+    <div className="bg-gradient-to-l from-slate-200 to-slate-600 min-h-max p-4">
+      <Link className="underline ml-4" href={"/quiz"}>
         Quiz home
       </Link>
       <div className="flex flex-col gap-4 pl-4 pt-4">
         <h2 className="font-bold text-2xl">Add new question</h2>
         <label className="font-bold text-xl">Question:</label>
         <input
-          className="border text-black w-1/2"
+          className="border px-1 text-black w-1/2"
           value={questionName}
           onChange={(e) => setQuestionName(e.target.value)}
         />
@@ -89,7 +89,7 @@ export default function Admin() {
         {answerAlts.map((alt, index) => (
           <input
             key={index}
-            className="border text-black w-1/2"
+            className="border px-1 text-black w-1/2"
             value={alt}
             onChange={(e) => {
               const updatedAnswerAlts = [...answerAlts];
@@ -100,24 +100,24 @@ export default function Admin() {
         ))}
         <label className="font-bold text-xl">Correct answer :</label>
         <input
-          className="border text-black w-1/2"
+          className="border px-1 text-black w-1/2"
           value={correctAnswer}
           onChange={(e) => setCorrectAnswer(e.target.value)}
         />
       </div>
       <button
-        className="border border-solid border-black font-semibold bg-teal-700 px-8 py-4 mt-10 ml-4"
+        className="border border-solid border-black font-semibold bg-teal-700 px-8 py-4 mt-10 ml-4 rounded-lg"
         onClick={handleAddQuestion}
       >
-        Skapa Fråga
+        Add Question
       </button>
 
-      <h2 className="font-bold text-2xl text-center">Nuvarande frågor</h2>
+      <h2 className="font-bold text-2xl text-center mt-8">Nuvarande frågor</h2>
       {questions.map((question, index) => (
         <div className="text-center pt-5" key={index}>
           <label className="flex justify-center p-2">Question:</label>
           <input
-            className="border border-solid border-black text-black"
+            className="border px-1 border-solid border-black text-black"
             type="text"
             value={question.text}
             onChange={(e) => updateQuizText(e.target.value, index)}
@@ -125,9 +125,9 @@ export default function Admin() {
 
           {question.alt.map((alt, altIndex) => (
             <div key={altIndex}>
-              <label className="flex justify-center p-2">Answers :</label>
+              <label className="flex justify-center p-2">Answers:</label>
               <input
-                className="border border-solid border-black text-black"
+                className="border px-1 border-solid border-black text-black"
                 type="text"
                 value={alt}
                 onChange={(e) =>
@@ -138,14 +138,14 @@ export default function Admin() {
           ))}
           <label className="flex justify-center p-2">Correct Answer:</label>
           <input
-            className="border border-solid border-black text-black"
+            className="border border-solid px-1 border-black text-black"
             type="number"
             value={question.correct}
             onChange={(e) => updateCorrectAnswer(index, e.target.value)}
           />
           <p className="p-2">Correct: {question.correct}</p>
           <button
-            className="mt-2 border border-solid border-black font-semibold bg-red-600"
+            className="mt-2 border border-solid border-black font-semibold bg-red-600 px-2 py-1 rounded-lg"
             onClick={() => handleDeleteQuiz(index)}
           >
             Delete
