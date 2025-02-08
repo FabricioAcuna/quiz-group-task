@@ -5,29 +5,39 @@ export const QuizContext = createContext();
 export default function QuizProvider({ children }) {
   const [questions, setQuestions] = useState([
     {
-      text: "What is the capital of Sweden?",
-      alt: ["Stockholm", "Gothenburg", "Malmö"],
-      correct: 0,
-    },
-    {
-      text: "What is the capital of Norway?",
-      alt: ["Helsinki", "Oslo", "Stockholm"],
+      text: "Who painted the Mona Lisa?",
+      alt: ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
       correct: 1,
     },
     {
-      text: "What is the capital of Finland?",
-      alt: ["Oslo", "Copenhagen", "Helsinki"],
-      correct: 2,
-    },
-    {
-      text: "What is the capital of Germany?",
-      alt: ["Berlin", "Amsterdam", "Frankfurt"],
+      text: "What is the longest river in the world?",
+      alt: ["Nile", "Amazon", "Yangtze"],
       correct: 0,
     },
     {
-      text: "What is the capital of Spain?",
-      alt: ["Sevilla", "Barcelona", "Madrid"],
+      text: "What is the capital of Brazil?",
+      alt: ["São Paulo", "Rio de Janeiro", "Brasília"],
       correct: 2,
+    },
+    {
+      text: " What is the largest ocean on Earth?",
+      alt: ["Atlantic Ocean", " Indian Ocean", "Pacific Ocean"],
+      correct: 2,
+    },
+    {
+      text: "Which country is home to the Great Wall?",
+      alt: ["Japan", "China", "Thailand"],
+      correct: 1,
+    },
+    {
+      text: "What is the fastest land animal?",
+      alt: ["Cheetah", "Lion", " Gazelle"],
+      correct: 0,
+    },
+    {
+      text: "Which is considered the best football team in Sweden?",
+      alt: ["Malmö FF", "AIK", "Djurgårdens IF"],
+      correct: 1,
     },
   ]);
 

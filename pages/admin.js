@@ -73,7 +73,7 @@ export default function Admin() {
   }
 
   return (
-    <div className=" bg-blue-900 min-h-max">
+    <div className="bg-gradient-to-l from-slate-600 to-slate-800 min-h-max">
       <Link className=" underline" href={"/quiz"}>
         Quiz home
       </Link>
