@@ -31,20 +31,20 @@ export default function Quiz() {
   }
 
   return (
-    <div className="min-h-screen bg-blue-500 flex flex-col justify-center items-center">
-      <h1 className="text-white text-5xl font-bold text-center mb-6">
-        Welcome to the Quiz
+    <div className="min-h-screen bg-blue-400 flex flex-col justify-center items-center py-10">
+      <h1 className="text-blue-900 text-5xl font-bold text-center mb-8">
+        Capital cities quiz
       </h1>
-      <h2 className="text-white text-2xl mb-6">Score: {score}</h2>
+      {/* <h2 className="text-white text-2xl mb-6">Score: {score}</h2> */}
 
       {questions.map((question, index) => (
         <div key={index} className="text-center mb-6">
-          <p className="text-white text-xl mb-4">{question.text}</p>
+          <p className="text-white text-xl font-semibold mb-4">{question.text}</p>
           <div className="flex gap-2 justify-center">
             {question.alt.map((answer, answerIndex) => {
               const answerState = selectedAnswers[index];
               let buttonClass =
-                "px-4 py-2 text-lg font-semibold text-white bg-blue-900 rounded-lg";
+                "px-4 py-2 text-lg text-white bg-blue-900 rounded-lg";
 
               if (answerState) {
                 if (answerState.selected === answerIndex) {
