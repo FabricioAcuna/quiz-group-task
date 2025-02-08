@@ -18,7 +18,7 @@ export default function Admin() {
       const newQuestion = {
         text: questionName,
         alt: answerAlts,
-        correct: parseInt(correctAnswer, 10),
+        correct: parseInt(correctAnswer),
       };
 
       setQuestions([...questions, newQuestion]);
@@ -26,8 +26,6 @@ export default function Admin() {
       setQuestionName("");
       setAnswerAlts(["", "", ""]);
       setCorrectAnswer("");
-    } else {
-      alert("Please fill in all fields");
     }
   }
 
@@ -81,6 +79,7 @@ export default function Admin() {
         <div className="text-center" key={index}>
           <p>{question.text}</p>
           <p>
+            Alternatives:{" "}
             {Array.isArray(question.alt) &&
               question.alt.map((alt, i) => <span key={i}>{alt} </span>)}
           </p>
