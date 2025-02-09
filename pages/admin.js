@@ -73,23 +73,23 @@ export default function Admin() {
   }
 
   return (
-    <div className="bg-gradient-to-l from-slate-200 to-slate-600 min-h-max p-4">
-      <Link className="underline ml-4" href={"/quiz"}>
+    <div className="bg-gradient-to-l from-slate-200 to-slate-500 min-h-max p-4">
+      <Link className="underline ml-2" href={"/quiz"}>
         Quiz home
       </Link>
-      <div className="flex flex-col gap-4 pl-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4 mx-2 md:w-1/3">
         <h2 className="font-bold text-2xl">Add new question</h2>
-        <label className="font-bold text-xl">Question:</label>
+        <label className="font-semibold">Question:</label>
         <input
-          className="border px-1 text-black w-1/2"
+          className="border border-black px-1 text-black"
           value={questionName}
           onChange={(e) => setQuestionName(e.target.value)}
         />
-        <label className="font-bold text-xl">Answer alternatives:</label>
+        <label className="font-semibold">Answer alternatives:</label>
         {answerAlts.map((alt, index) => (
           <input
             key={index}
-            className="border px-1 text-black w-1/2"
+            className="border border-black px-1 text-black"
             value={alt}
             onChange={(e) => {
               const updatedAnswerAlts = [...answerAlts];
@@ -98,36 +98,36 @@ export default function Admin() {
             }}
           />
         ))}
-        <label className="font-bold text-xl">Correct answer :</label>
+        <label className="font-semibold">Correct answer :</label>
         <input
-          className="border px-1 text-black w-1/2"
+          className="border border-black px-1 text-black"
           value={correctAnswer}
           onChange={(e) => setCorrectAnswer(e.target.value)}
         />
       </div>
       <button
-        className="border border-solid border-black font-semibold bg-teal-700 px-8 py-4 mt-10 ml-4 rounded-lg"
+        className="border border-solid border-black font-semibold bg-teal-600 px-6 py-3 mt-10 ml-2 rounded-lg"
         onClick={handleAddQuestion}
       >
         Add Question
       </button>
 
-      <h2 className="font-bold text-2xl text-center mt-8">Nuvarande frågor</h2>
+      <h2 className="font-bold text-2xl mt-8 ml-2">Current questions</h2>
       {questions.map((question, index) => (
-        <div className="text-center pt-5" key={index}>
-          <label className="flex justify-center p-2">Question:</label>
+        <div className="flex flex-col gap-4 py-4 mx-2 md:w-1/3" key={index}>
+          <label className="font-semibold">Question:</label>
           <input
-            className="border px-1 border-solid border-black text-black"
+            className="border px-1 border-black text-black"
             type="text"
             value={question.text}
             onChange={(e) => updateQuizText(e.target.value, index)}
           />
 
           {question.alt.map((alt, altIndex) => (
-            <div key={altIndex}>
-              <label className="flex justify-center p-2">Answers:</label>
+            <div className="flex flex-col gap-4" key={altIndex}>
+              <label className="font-semibold">Answer alt {altIndex + 1}</label>
               <input
-                className="border px-1 border-solid border-black text-black"
+                className="border px-1 border-black text-black"
                 type="text"
                 value={alt}
                 onChange={(e) =>
@@ -136,16 +136,16 @@ export default function Admin() {
               />
             </div>
           ))}
-          <label className="flex justify-center p-2">Correct Answer:</label>
+          <label className="font-semibold">Correct Answer:</label>
           <input
-            className="border border-solid px-1 border-black text-black"
+            className="border px-1 border-black text-black"
             type="number"
             value={question.correct}
             onChange={(e) => updateCorrectAnswer(index, e.target.value)}
           />
-          <p className="p-2">Correct: {question.correct}</p>
+          {/* <p className="p-2">Correct: {question.correct}</p> */}
           <button
-            className="mt-2 border border-solid border-black font-semibold bg-red-600 px-2 py-1 rounded-lg"
+            className="mt-2 border border-solid border-black font-semibold bg-red-500 px-2 py-1 rounded-lg w-fit"
             onClick={() => handleDeleteQuiz(index)}
           >
             Delete
