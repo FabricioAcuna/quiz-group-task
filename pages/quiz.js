@@ -34,7 +34,7 @@ export default function Quiz() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-fuchsia-500 to-cyan-500  flex flex-col justify-center items-center py-10">
-      <h1 className="text-blue-900 text-6xl font-bold text-center mb-8">
+      <h1 className="text-blue-900 text-5xl md:text-6xl font-bold text-center mb-8">
         General knowledge quiz
       </h1>
       {/* <h2 className="text-white text-2xl mb-6">Score: {score}</h2> */}
@@ -65,7 +65,7 @@ export default function Quiz() {
 
         <div className="text-center mb-6">
         <p className="text-white text-2xl font-semibold mb-4">{question.text}</p>
-        <div className="flex flex-col gap-4 justify-center">
+        <div className="flex flex-col gap-4 justify-center mx-4">
           {question.alt.map((answer, answerIndex) => {
             const answerState = selectedAnswers[currentQuestionIndex];
             let buttonClass =
