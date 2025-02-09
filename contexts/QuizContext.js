@@ -44,6 +44,8 @@ export default function QuizProvider({ children }) {
   const [score, setScore] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Extra tillagd - Håller koll på vad som visas
+
 
   const handleAnswer = (questionIndex, selectedAnswerIndex) => {
     if (selectedAnswers[questionIndex]) return;
@@ -56,15 +58,29 @@ export default function QuizProvider({ children }) {
       [questionIndex]: { selected: selectedAnswerIndex, correct: isCorrect },
     }));
 
-    if (Object.keys(selectedAnswers).length + 1 === questions.length) {
+
+    // Tidigare kod
+    /*if (Object.keys(selectedAnswers).length + 1 === questions.length) {
       setIsQuizCompleted(true);
-    }
+    } */
+
+      setTimeout(() => {
+        if (questionIndex + 1 < questions.length) {
+          setCurrentQuestionIndex(questionIndex + 1);
+        } else {
+          setIsQuizCompleted(true);
+        }
+      }, 1000);
+
+
+
   };
 
   const resetQuiz = () => {
     setScore(0);
     setSelectedAnswers({});
     setIsQuizCompleted(false);
+    setCurrentQuestionIndex(0); // Tillbaks till första
   };
 
   return (
@@ -77,6 +93,7 @@ export default function QuizProvider({ children }) {
         isQuizCompleted,
         handleAnswer,
         resetQuiz,
+        currentQuestionIndex
       }}
     >
       {children}
