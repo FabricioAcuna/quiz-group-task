@@ -106,7 +106,7 @@ export default function Admin() {
         />
       </div>
       <button
-        className="border border-solid border-black font-semibold bg-teal-600 px-6 py-3 mt-10 ml-2 rounded-lg"
+        className="border border-solid border-black font-semibold bg-teal-600 hover:bg-teal-700 px-6 py-3 mt-10 ml-2 rounded-lg"
         onClick={handleAddQuestion}
       >
         Add Question
@@ -143,9 +143,8 @@ export default function Admin() {
             value={question.correct}
             onChange={(e) => updateCorrectAnswer(index, e.target.value)}
           />
-          {/* <p className="p-2">Correct: {question.correct}</p> */}
           <button
-            className="mt-2 border border-solid border-black font-semibold bg-red-500 px-2 py-1 rounded-lg w-fit"
+            className="mt-2 border border-solid border-black font-semibold bg-red-500 hover:bg-red-600 px-2 py-1 rounded-lg w-fit"
             onClick={() => handleDeleteQuiz(index)}
           >
             Delete

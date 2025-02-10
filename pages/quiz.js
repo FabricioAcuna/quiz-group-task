@@ -37,32 +37,6 @@ export default function Quiz() {
       <h1 className="text-blue-900 text-5xl md:text-6xl font-bold text-center mb-8">
         General knowledge quiz
       </h1>
-      {/* <h2 className="text-white text-2xl mb-6">Score: {score}</h2> */}
-
-
-{/* Gamla koden, denna visar alla frågorna
-      {questions.map((question, index) => (
-        <div key={index} className="text-center mb-6">
-          <p className="text-white text-2xl font-semibold mb-4">
-            {question.text}
-          </p>
-          <div className="flex gap-2 justify-center">
-            {question.alt.map((answer, answerIndex) => {
-              const answerState = selectedAnswers[index];
-              let buttonClass =
-                "px-4 py-2 text-base text-white font-semibold bg-blue-900 rounded-lg";
-
-              if (answerState) {
-                if (answerState.selected === answerIndex) {
-                  buttonClass += answerState.correct
-                    ? " bg-green-500"
-                    : " bg-red-500";
-                } else {
-                  buttonClass += " opacity-50";
-                }
-              }
-          */}
-
         <div className="text-center mb-6">
         <p className="text-white text-2xl font-semibold mb-4">{question.text}</p>
         <div className="flex flex-col gap-4 justify-center mx-4">
