@@ -9,7 +9,7 @@ export default function Quiz() {
     handleAnswer,
     isQuizCompleted,
     resetQuiz,
-    currentQuestionIndex, // Tillagd från quizcontext filen
+    currentQuestionIndex,
   } = useContext(QuizContext);
 
   if (isQuizCompleted) {
@@ -30,15 +30,17 @@ export default function Quiz() {
     );
   }
 
-  const question = questions[currentQuestionIndex]
+  const question = questions[currentQuestionIndex];
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-fuchsia-500 to-cyan-500  flex flex-col justify-center items-center py-10">
       <h1 className="text-blue-900 text-5xl md:text-6xl font-bold text-center mb-8">
         General knowledge quiz
       </h1>
-        <div className="text-center mb-6">
-        <p className="text-white text-2xl font-semibold mb-4">{question.text}</p>
+      <div className="text-center mb-6">
+        <p className="text-white text-2xl font-semibold mb-4">
+          {question.text}
+        </p>
         <div className="flex flex-col gap-4 justify-center mx-4">
           {question.alt.map((answer, answerIndex) => {
             const answerState = selectedAnswers[currentQuestionIndex];
@@ -47,7 +49,9 @@ export default function Quiz() {
 
             if (answerState) {
               if (answerState.selected === answerIndex) {
-                buttonClass += answerState.correct ? " bg-green-500" : " bg-red-500";
+                buttonClass += answerState.correct
+                  ? " bg-green-500"
+                  : " bg-red-500";
               } else {
                 buttonClass += " opacity-50";
               }
