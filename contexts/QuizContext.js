@@ -57,11 +57,6 @@ export default function QuizProvider({ children }) {
       [questionIndex]: { selected: selectedAnswerIndex, correct: isCorrect },
     }));
 
-    // Tidigare kod
-    /*if (Object.keys(selectedAnswers).length + 1 === questions.length) {
-      setIsQuizCompleted(true);
-    } */
-
     setTimeout(() => {
       if (questionIndex + 1 < questions.length) {
         setCurrentQuestionIndex(questionIndex + 1);
